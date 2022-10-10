@@ -27,7 +27,7 @@ const material1 = new THREE.LineBasicMaterial({
 const points = [];
 
 let oldVec = new THREE.Vector3(0, -20, 0);
-for (let baseY = -20; baseY < 20; baseY += 0.001) {
+for (let baseY = -20; baseY < 20; baseY += 0.01) {
 	const scale = ((19.9 - Math.abs(baseY)) / 10) ** 3;
 
 	const x = noise(baseY, seed) * scale;
