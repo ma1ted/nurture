@@ -1,16 +1,35 @@
 @font-face {
-	font-family: "Batang";
-	src: url("/batang.ttf") format("truetype");
+	font-family: "Garamond Pro";
+	src: url("https://use.typekit.net/af/2011b6/00000000000000003b9b00c1/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+		format("truetype");
 }
 
 body {
 	margin: 0;
 	background-color: black;
 	color: white;
+	font-family: "Garamond Pro";
+}
+
+canvas {
+	position: fixed;
+	z-index: -10;
+	top: 0;
+	translate: 33%;
 }
 
 h1 {
-	position: absolute;
-	font-family: "Batang";
+	font-size: 3rem;
+	letter-spacing: 2rem;
+	font-weight: 400;
 	margin: 3rem;
+	position: absolute;
+}
+
+#info-display {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 2rem;
+	font-size: 0.8rem;
 }
