@@ -9,20 +9,24 @@ body {
 	background-color: black;
 	color: white;
 	font-family: "Garamond Pro";
+
+	--x: 35vw;
 }
 
 canvas {
 	position: fixed;
 	z-index: -10;
 	top: 0;
-	translate: -15vw;
+	translate: calc(-50vw + var(--x));
+	width: 100%;
+	height: 100%;
 }
 
 h1 {
 	font-size: 4rem;
-	letter-spacing: calc(calc(35vw / 6) - 2rem);
+	letter-spacing: max(0px, calc(calc(var(--x) / 6) - 2rem));
 	text-align: justify;
-	width: 35vw;
+	width: var(--x);
 	top: 5rem;
 	position: absolute;
 }
@@ -39,34 +43,29 @@ h2 {
 	font-size: 1.5rem;
 }
 section#lyrics > h2:nth-child(1) {
-	letter-spacing: calc(calc(35vw / 16) - 0.75rem);
+	letter-spacing: max(0px, calc(calc(var(--x) / 16) - 0.75rem));
 }
 section#lyrics > h2:nth-child(2),
 section#lyrics > h2:nth-child(3),
 section#lyrics > h2:nth-child(4),
 section#lyrics > h2:nth-child(5) {
-	letter-spacing: calc(calc(35vw / 9) - 0.75rem);
+	letter-spacing: max(0px, calc(calc(var(--x) / 9) - 0.75rem));
 }
 section#lyrics > h2:nth-child(6) {
-	letter-spacing: calc(calc(35vw / 23) - 0.75rem);
+	letter-spacing: max(0px, calc(calc(var(--x) / 23) - 0.75rem));
 }
 
 /* h2 {
 	font-size: 1rem;
-	letter-spacing: calc(calc(35vw / 6) - 0.5rem);
+	letter-spacing: calc(calc(var(--x) / 6) - 0.5rem);
 	position: relative;
 } */
 #scroll-msg {
 	font-size: 1.5rem;
-	letter-spacing: calc(calc(35vw / 10) - 0.75rem);
+	letter-spacing: max(0px, calc(calc(var(--x) / 10) - 0.75rem));
 	position: absolute;
 	bottom: 5rem;
 }
-/* @media screen {
-	h1 {
-		letter-spacing: calc(calc(40vw / 6) - 6rem);
-	}
-} */
 
 #info-display {
 	position: fixed;

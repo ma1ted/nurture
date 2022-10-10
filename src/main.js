@@ -29,7 +29,10 @@ const renderer = new THREE.WebGLRenderer({
 	antialias: true,
 	alpha: true,
 });
-renderer.setSize(window.innerWidth * ratio, window.innerHeight * ratio);
+const pixelRatio = window.devicePixelRatio;
+const desiredWidth = (canvas.clientWidth * pixelRatio) | 0;
+const desiredHeight = (canvas.clientHeight * pixelRatio) | 0;
+renderer.setSize(desiredWidth, desiredHeight, false);
 document.body.appendChild(renderer.domElement);
 
 const material = new THREE.LineBasicMaterial({ color: 0xffffff });
