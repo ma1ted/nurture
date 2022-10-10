@@ -1,12 +1,12 @@
 {
 	"name": "nurture",
 	"private": true,
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite src",
-		"build": "vite build src",
-		"preview": "vite preview src"
+		"build": "vite build src --outDir ../dist",
+		"preview": "vite preview"
 	},
 	"devDependencies": {
 		"prettier": "^2.7.1",
