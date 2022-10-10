@@ -75,5 +75,6 @@ function funkyLine() {
 }
 funkyLine();
 window.addEventListener("scroll", () => funkyLine());
+window.addEventListener("resize", () => funkyLine());
 
 animate();
