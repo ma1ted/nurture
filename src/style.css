@@ -1,4 +1,16 @@
+@font-face {
+	font-family: "Batang";
+	src: url("/batang.ttf") format("truetype");
+}
+
 body {
 	margin: 0;
 	background-color: black;
+	color: white;
+}
+
+h1 {
+	position: absolute;
+	font-family: "Batang";
+	margin: 3rem;
 }

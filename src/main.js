@@ -8,7 +8,7 @@ const camera = new THREE.PerspectiveCamera(
 	0.1,
 	1000
 );
-camera.position.z = 15;
+camera.position.z = 25;
 
 const rotationSpeed = 1;
 const seed = Math.random();
@@ -48,11 +48,11 @@ const clock = new THREE.Clock();
 function animate() {
 	requestAnimationFrame(animate);
 
-	camera.position.set(
-		Math.sin(clock.getElapsedTime() * rotationSpeed) * 25,
-		0,
-		Math.cos(clock.getElapsedTime() * rotationSpeed) * 25
-	);
+	// camera.position.set(
+	// 	Math.sin(clock.getElapsedTime() * rotationSpeed) * 25,
+	// 	0,
+	// 	Math.cos(clock.getElapsedTime() * rotationSpeed) * 25
+	// );
 
 	camera.lookAt(0, 0, 0);
 
