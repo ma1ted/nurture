@@ -2,7 +2,6 @@ import * as THREE from "three";
 import { createNoise2D } from "simplex-noise";
 
 import f from "./infoDisplay";
-import { doc } from "prettier";
 f();
 
 const startY = -20;
