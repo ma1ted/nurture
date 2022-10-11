@@ -26,50 +26,41 @@ canvas {
 	height: 100%;
 }
 
+main {
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+	width: calc(var(--x) - 0.25rem);
+	text-align: justify;
+	text-align-last: justify;
+	text-justify: inter-character;
+}
+
 h1 {
 	font-size: 4rem;
-	letter-spacing: max(0px, calc(calc(var(--x) / 6) - 2rem));
-	text-align: justify;
-	width: var(--x);
-	top: 5rem;
-	position: absolute;
+	margin-top: 10vh;
+}
+
+h2 {
+	font-size: 2rem;
+	margin-top: 50vh;
 }
 
 section#lyrics {
 	display: flex;
 	flex-direction: column;
 	gap: 50rem;
-	letter-spacing: 0;
 	margin-top: 200vh;
 	margin-bottom: 5rem;
+	width: var(--x);
 }
 
-h2 {
+h3 {
 	font-size: 1.5rem;
-}
-section#lyrics > h2:nth-child(1) {
-	letter-spacing: max(0px, calc(calc(var(--x) / 16) - 0.75rem));
-}
-section#lyrics > h2:nth-child(2),
-section#lyrics > h2:nth-child(3),
-section#lyrics > h2:nth-child(4),
-section#lyrics > h2:nth-child(5) {
-	letter-spacing: max(0px, calc(calc(var(--x) / 9) - 0.75rem));
-}
-section#lyrics > h2:nth-child(6) {
-	letter-spacing: max(0px, calc(calc(var(--x) / 23) - 0.75rem));
-}
-
-/* h2 {
-	font-size: 1rem;
-	letter-spacing: calc(calc(var(--x) / 6) - 0.5rem);
-	position: relative;
-} */
-#scroll-msg {
-	font-size: 1.5rem;
-	letter-spacing: max(0px, calc(calc(var(--x) / 10) - 0.75rem));
-	position: absolute;
-	bottom: 5rem;
 }
 
 #info-display {

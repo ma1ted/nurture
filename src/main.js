@@ -1,8 +1,14 @@
 import * as THREE from "three";
 import { createNoise2D } from "simplex-noise";
+import displayInfo from "./infoDisplay";
 
-import f from "./infoDisplay";
-f();
+const query = new URLSearchParams(document.location.search);
+const simple = query.get("simple");
+if (simple) {
+	document.querySelectorAll("h1, h2, section, p").forEach((el) => el.remove());
+} else {
+	displayInfo();
+}
 
 const startY = -20;
 const endY = 20;
@@ -40,31 +46,34 @@ const clock = new THREE.Clock();
 function animate() {
 	requestAnimationFrame(animate);
 
-	camera.position.set(
-		Math.sin(clock.getElapsedTime() * rotationSpeed) * cameraZoom,
-		0,
-		Math.cos(clock.getElapsedTime() * rotationSpeed) * cameraZoom
-	);
+	if (!simple) {
+		camera.position.set(
+			Math.sin(clock.getElapsedTime() * rotationSpeed) * cameraZoom,
+			0,
+			Math.cos(clock.getElapsedTime() * rotationSpeed) * cameraZoom
+		);
 
-	camera.lookAt(0, 0, 0);
+		camera.lookAt(0, 0, 0);
+	} else {
+		funkyLine();
+	}
 
 	renderer.render(scene, camera);
 }
 
-let points, scale, x, z, offsetY, geometry, line, scroll;
+let points, scale, x, z, offsetY, geometry, line, scroll, elapsed;
 function funkyLine() {
 	scroll = document.scrollingElement.scrollTop / 5000;
+
+	elapsed = clock.getElapsedTime() * 0.05;
 
 	points = [];
 	for (let baseY = startY; baseY < endY; baseY += lineRes) {
 		scale = ((19.9 - Math.abs(baseY)) / 10) ** 3;
 
-		x = noise(baseY, scroll) * scale;
-		z = noise(baseY, scroll + document.body.scrollHeight) * scale;
-		offsetY = noise(baseY, scroll + document.body.scrollHeight * 2) * scale;
-		// x = (Math.random() * 2 - 1) * scale;
-		// z = (Math.random() * 2 - 1) * scale;
-		// offsetY = (Math.random() * 2 - 1) * scale;
+		x = noise(baseY, simple ? elapsed : scroll) * scale;
+		z = noise(baseY, (simple ? elapsed : scroll) + 1) * scale;
+		offsetY = noise(baseY, (simple ? elapsed : scroll) + 2) * scale;
 
 		points.push(new THREE.Vector3(x, baseY + offsetY, z));
 	}
