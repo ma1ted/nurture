@@ -2,10 +2,14 @@ import * as THREE from "three";
 import { createNoise2D } from "simplex-noise";
 import displayInfo from "./infoDisplay";
 
+const canvas = document.querySelector("canvas");
+
 const query = new URLSearchParams(document.location.search);
 const simple = query.get("simple");
 if (simple) {
 	document.querySelectorAll("h1, h2, section, p").forEach((el) => el.remove());
+	canvas.style.translate = "0";
+	document.body.overflow = "hidden";
 } else {
 	displayInfo();
 }
@@ -28,7 +32,6 @@ camera.position.z = cameraZoom;
 const noise = createNoise2D();
 
 const ratio = window.devicePixelRatio || 1;
-const canvas = document.querySelector("canvas");
 const renderer = new THREE.WebGLRenderer({
 	canvas,
 	antialias: true,
